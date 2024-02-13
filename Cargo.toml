@@ -1,0 +1,37 @@
+workspace = { members = [ "deps/array_gen",
+    "deps/sort_algorithms/bubble",
+    "deps/is_sorted",
+    "deps/metrics",
+    "deps/sort_algorithms/modified_bubble",
+    "deps/sort_algorithms/shell",
+] }
+[package]
+name = "lab1"
+version = "0.1.0"
+edition = "2021"
+default-run = "lab1"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+plotters = "0.3.5"
+rand = "0.8.5"
+
+is_sorted = { path = "deps/is_sorted" }
+array_gen = { path = "deps/array_gen" }
+metrics = { path = "deps/metrics" }
+bubble_sort = { path = "deps/sort_algorithms/bubble" }
+modified_bubble_sort = { path = "deps/sort_algorithms/modified_bubble" }
+shellsort = { path = "deps/sort_algorithms/shell" }
+
+[[bin]]
+name = "benchmark_bubble"
+path = "src/benchs/bubble.rs"
+
+[[bin]]
+name = "benchmark_modified_bubble"
+path = "src/benchs/bubble_modified.rs"
+
+[[bin]]
+name = "benchmark_shell"
+path = "src/benchs/shell.rs"
