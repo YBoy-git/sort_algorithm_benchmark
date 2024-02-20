@@ -2,11 +2,10 @@ use std::time::Instant;
 
 use metrics::Metrics;
 
-pub fn shellsort<T: PartialOrd>(mut data: impl AsMut<[T]>) -> Metrics {
+pub fn shellsort<T: PartialOrd>(data: &mut [T]) -> Metrics {
     let mut metrics = Metrics::default();
     let start = Instant::now();
 
-    let data = data.as_mut();
     let n = data.len();
 
     // Find the closest Knuth member

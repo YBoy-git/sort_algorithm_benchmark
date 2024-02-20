@@ -2,11 +2,10 @@ use std::time::Instant;
 
 use metrics::Metrics;
 
-pub fn modified_bubble_sort<T: PartialOrd>(mut data: impl AsMut<[T]>) -> Metrics {
+pub fn modified_bubble_sort<T: PartialOrd>(data: &mut [T]) -> Metrics {
     let mut metrics = Metrics::default();
     let start = Instant::now();
 
-    let data = data.as_mut();
     let mut n = data.len();
 
     let mut swapped = true;

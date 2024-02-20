@@ -86,8 +86,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         println!("\tSorted");
         {
-            let arr = sorted_arr.clone();
-            let metrics = algorithm_fn(arr);
+            let mut arr = sorted_arr.clone();
+            println!("Before: {:?}", arr);
+            let metrics = algorithm_fn(&mut arr);
+            println!("After: {:?}", arr);
 
             println!("\t\tComparisons: {}", metrics.comparisons);
             println!("\t\tSwaps: {}", metrics.swaps);
@@ -99,8 +101,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         println!("\tReversed");
         {
-            let arr = reversed_arr.clone();
-            let metrics = algorithm_fn(arr);
+            let mut arr = reversed_arr.clone();
+            println!("Before: {:?}", arr);
+            let metrics = algorithm_fn(&mut arr);
+            println!("After: {:?}", arr);
 
             println!("\t\tComparisons: {}", metrics.comparisons);
             println!("\t\tSwaps: {}", metrics.swaps);
@@ -112,8 +116,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         println!("\tAverage (random) case");
         {
-            let arr = random_arr.clone();
-            let metrics = algorithm_fn(arr);
+            let mut arr = random_arr.clone();
+            println!("Before: {:?}", arr);
+            let metrics = algorithm_fn(&mut arr);
+            println!("After: {:?}", arr);
 
             println!("\t\tComparisons: {}", metrics.comparisons);
             println!("\t\tSwaps: {}", metrics.swaps);
